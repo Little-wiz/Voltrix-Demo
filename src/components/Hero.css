@@ -8,48 +8,57 @@
   overflow: hidden;
   padding-top: var(--nav-h);
 }
+
+/* * Little-wiz updated: Full-bleed background image */
+.hero_bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  transform: scale(1.02);
+  transition: transform 8s ease;
+}
+
+.hero.loaded .hero_bg {
+  transform: scale(1.0);
+}
+
+/* Little-wiz updated: Two-layer vignette:*/
+.hero_vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    /* Dark bottom-to-transparent for stats strip */
+    linear-gradient(
+      to top,
+      rgba(10, 20, 10, 0.92) 0%,
+      rgba(10, 20, 10, 0.55) 30%,
+      rgba(10, 20, 10, 0.1) 60%,
+      transparent 100%
+    ),
+    /* Radial vignette — dark edges, opens only center */
+    radial-gradient(
+      ellipse at center,
+      transparent 30%,
+      rgba(5, 15, 5, 0.55) 70%,
+      rgba(5, 15, 5, 0.85) 100%
+    ),
+    /*  A little dark tint to ensures text stays readable over photo */
+    rgba(10, 22, 10, 0.42);
+  pointer-events: none;
+}
+
+/* Little-wiz updated: Green grid at very low opacity — brand texture without fighting photo */
 .hero_grid {
   position: absolute; inset: 0;
   background-image:
-    linear-gradient(rgba(61,190,108,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(61,190,108,0.05) 1px, transparent 1px);
+    linear-gradient(rgba(61,190,108,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(61,190,108,0.04) 1px, transparent 1px);
   background-size: 60px 60px;
   pointer-events: none;
 }
-/* Decorative leaf/orb shapes */
-.hero_leaves { position: absolute; inset: 0; pointer-events: none; }
-.leaf {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.18;
-}
-.leaf-1 {
-  width: 480px; height: 480px;
-  background: var(--accent);
-  top: -120px; right: -80px;
-  animation: floatA 9s ease-in-out infinite;
-}
-.leaf-2 {
-  width: 320px; height: 320px;
-  background: var(--teal);
-  bottom: 40px; right: 20%;
-  animation: floatB 11s ease-in-out infinite 2s;
-}
-.leaf-3 {
-  width: 200px; height: 200px;
-  background: var(--accent);
-  bottom: -60px; left: 5%;
-  animation: floatA 8s ease-in-out infinite 4s;
-}
-@keyframes floatA {
-  0%,100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-24px) scale(1.05); }
-}
-@keyframes floatB {
-  0%,100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(20px) scale(0.95); }
-}
+
 .hero_inner {
   position: relative; z-index: 1;
   display: flex; flex-direction: column;

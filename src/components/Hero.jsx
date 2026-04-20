@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import './Hero.css';
 
+const Hero_img = 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1920&q=85&fit=crop&crop=center';
+
 export default function Hero() {
   const heroRef = useRef(null);
 
@@ -13,7 +15,16 @@ export default function Hero() {
   return (
     <section className="hero" id="hero" ref={heroRef}>
       {/* Background grid pattern */}
-      <div className="hero_grid" aria-hidden="true" />
+      {/* Little-wiz updated: Background image */}
+      <div
+        className="hero_bg"
+        style={{ backgroundImage: `url(${Hero_img})` }}
+        aria-hidden="true"
+      />
+
+      {/* Little-wiz Updated: (dark edges) layer */}
+      <div className="hero_vignette" aria-hidden="true" />
+
       {/* Diagonal accent shape  */}
       <div className="hero_leaves" aria-hidden="true">
         <span className="leaf leaf-1" />
