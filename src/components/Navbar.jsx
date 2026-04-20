@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
+import logo from '../assets/logo1.png';
+
 
 const links = [
   { label: 'Services', href: '#services' },
@@ -19,7 +21,7 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // lock body scroll when mobile menu is open
+  // locks the body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
@@ -30,26 +32,22 @@ export default function Navbar() {
   return (
     <header className={`navbar${scrolled ? ' scrolled' : ''}`}>
       <div className="container navbar_inner">
-        {/* Logo */}
         <a href="#hero" className="navbar_logo" onClick={handleLink}>
-          <span className="navbar_logo-icon">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-              <polygon points="13,2 5,13 11,13 9,20 17,9 11,9" fill="currentColor"/>
-            </svg>
-          </span>
-          <span className="navbar_logo-text">VOLTIX</span>
+          <img src={logo} alt="Ehiz Mogaji Electrical Logo" />
+          <div className="navbar_logo-text">
+            <span className="navbar_logo-name">EHIZ MOGAJI</span>
+            <span className="navbar_logo-sub">Electrical</span>
+          </div>
         </a>
 
-        {/* Desktop nav */}
         <nav className="navbar_links">
           {links.map(l => (
             <a key={l.href} href={l.href} className="navbar_link">{l.label}</a>
           ))}
         </nav>
 
-        <a href="#contact" className="navbar_cta">Book a Service</a>
+        <a href="#contact" className="navbar_cta">Get a Quote</a>
 
-        {/* Hamburger */}
         <button
           className={`navbar_burger${open ? ' open' : ''}`}
           onClick={() => setOpen(!open)}
@@ -59,7 +57,6 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile drawer */}
       <div className={`navbar_drawer${open ? ' open' : ''}`}>
         <nav className="navbar_drawer-links">
           {links.map(l => (
@@ -68,7 +65,7 @@ export default function Navbar() {
             </a>
           ))}
           <a href="#contact" className="navbar_drawer-cta" onClick={handleLink}>
-            Book a Service
+            Get a Quote
           </a>
         </nav>
       </div>

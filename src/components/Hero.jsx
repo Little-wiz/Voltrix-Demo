@@ -14,33 +14,34 @@ export default function Hero() {
     <section className="hero" id="hero" ref={heroRef}>
       {/* Background grid pattern */}
       <div className="hero_grid" aria-hidden="true" />
-
-      {/* Diagonal accent shape */}
-      <div className="hero_accent" aria-hidden="true" />
+      {/* Diagonal accent shape  */}
+      <div className="hero_leaves" aria-hidden="true">
+        <span className="leaf leaf-1" />
+        <span className="leaf leaf-2" />
+        <span className="leaf leaf-3" />
+      </div>
 
       <div className="container hero_inner">
         <div className="hero_content">
-          <p className="hero_eyebrow">Licensed & Certified Electricians</p>
+          <p className="hero_eyebrow">Licensed & Certified · RC: 8171988</p>
           <h1 className="hero_title">
-            Power Your<br />
-            <span className="hero_title-accent">World</span><br />
-            Safely.
+            Clean Power.<br />
+            <span className="hero_title-accent">Green</span><br />
+            Future.
           </h1>
           <p className="hero_subtitle">
-            Professional electrical services for residential and commercial
-            properties. Available 24/7 for emergencies.
+            Professional electrical and renewable energy solutions for homes and businesses across Nigeria. Solar, inverters, wiring — done right.
           </p>
           <div className="hero_actions">
-            <a href="#contact" className="btn btn--primary">Book a Service</a>
+            <a href="#contact" className="btn btn--primary">Get a Free Quote</a>
             <a href="#services" className="btn btn--ghost">Our Services</a>
           </div>
         </div>
 
-        {/* Stats strip */}
         <div className="hero_stats">
           {[
-            { value: '30+', label: 'Years Experience' },
-            { value: '4,938', label: 'Clients Served' },
+            { value: '10+', label: 'Years Experience' },
+            { value: '500+', label: 'Projects Completed' },
             { value: '24/7', label: 'Emergency Support' },
             { value: '100%', label: 'Certified Work' },
           ].map((s, i) => (
@@ -52,10 +53,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="hero_scroll" aria-hidden="true">
-        <span />
-      </div>
+      <div className="hero_scroll" aria-hidden="true"><span /></div>
     </section>
   );
 }

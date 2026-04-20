@@ -1,5 +1,7 @@
 import { useEffect, useRef } from 'react';
 
+// Claude coded this hook to add a reveal animation to elements with the "reveal" class when they come into view.
+
 export function useReveal() {
   const ref = useRef(null);
 
@@ -28,3 +30,5 @@ export function useReveal() {
 
   return ref;
 }
+
+// Little-wiz was here 

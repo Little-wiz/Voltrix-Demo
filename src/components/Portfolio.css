@@ -1,12 +1,12 @@
 .portfolio {
   padding: 100px 0;
-  background: var(--c1);
+  background: var(--accent-light);
 }
 
 .portfolio .section-title,
 .portfolio .section-sub { color: var(--c5); }
-.portfolio .section-eyebrow { color: var(--accent); }
-.portfolio .section-eyebrow::before { background: var(--accent); }
+.portfolio .section-eyebrow { color: var(--accent-dark); }
+.portfolio .section-eyebrow::before { background: var(--accent-dark); }
 
 .portfolio_filters {
   display: flex;
@@ -31,8 +31,8 @@
 
 .portfolio_filter:hover,
 .portfolio_filter.active {
-  background: var(--c5);
-  border-color: var(--c5);
+  background: var(--dark);
+  border-color: var(--dark);
   color: var(--white);
 }
 
@@ -59,13 +59,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--c2), var(--c3));
+  background: linear-gradient(135deg, var(--dark-2), var(--c5));
 }
 
 .portfolio_overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(40,38,35,0.92) 0%, rgba(40,38,35,0.2) 60%, transparent 100%);
+  background: linear-gradient(to top, rgba(15,31,14,0.94) 0%, rgba(15,31,14,0.2) 60%, transparent 100%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;

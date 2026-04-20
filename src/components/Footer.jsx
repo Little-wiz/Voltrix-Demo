@@ -1,5 +1,7 @@
 import React from 'react';
 import './Footer.css';
+import logo from '../assets/logo1.png';
+
 
 const navLinks = [
   { label: 'Services', href: '#services' },
@@ -7,6 +9,11 @@ const navLinks = [
   { label: 'Portfolio', href: '#portfolio' },
   { label: 'Testimonials', href: '#testimonials' },
   { label: 'Contact', href: '#contact' },
+];
+
+const serviceLinks = [
+  'Solar Panel Installation', 'Inverter Installation', 'Battery Storage',
+  'Residential Wiring', 'Commercial Electrical', 'Maintenance & Repairs',
 ];
 
 const socials = [
@@ -48,19 +55,20 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="container footer_inner">
+
         {/* Brand */}
         <div className="footer_brand">
           <a href="#hero" className="footer_logo">
-            <span className="footer_logo-icon">
-              <svg width="20" height="20" viewBox="0 0 22 22" fill="none">
-                <polygon points="13,2 5,13 11,13 9,20 17,9 11,9" fill="currentColor"/>
-              </svg>
-            </span>
-            <span className="footer_logo-text">VOLTIX</span>
+            <img src={logo} alt="Ehiz Mogaji Electrical" />
+            <div className="footer_logo-text">
+              <span className="footer_logo-name">EHIZ MOGAJI</span>
+              <span className="footer_logo-sub">Electrical</span>
+            </div>
           </a>
           <p className="footer_tagline">
-            Professional electrical services for residential and commercial properties. Licensed, certified, and available 24/7.
+            Licensed electrical and green energy solutions for homes and businesses across Nigeria. Solar, inverters, wiring — done right.
           </p>
+          <p className="footer_rc">RC: 8171988</p>
           <div className="footer_socials">
             {socials.map(s => (
               <a key={s.label} href={s.href} className="footer_social" aria-label={s.label}>
@@ -70,14 +78,12 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Nav */}
+        {/* Navigation */}
         <div className="footer_col">
           <h4 className="footer_col-title">Navigation</h4>
           <ul className="footer_nav">
             {navLinks.map(l => (
-              <li key={l.href}>
-                <a href={l.href} className="footer_nav-link">{l.label}</a>
-              </li>
+              <li key={l.href}><a href={l.href} className="footer_nav-link">{l.label}</a></li>
             ))}
           </ul>
         </div>
@@ -86,10 +92,8 @@ export default function Footer() {
         <div className="footer_col">
           <h4 className="footer_col-title">Services</h4>
           <ul className="footer_nav">
-            {['Residential Wiring', 'Commercial Electrical', 'Panel Upgrades', 'Emergency Repairs', 'EV Charger Install', 'Safety Inspections'].map(s => (
-              <li key={s}>
-                <a href="#services" className="footer_nav-link">{s}</a>
-              </li>
+            {serviceLinks.map(s => (
+              <li key={s}><a href="#services" className="footer_nav-link">{s}</a></li>
             ))}
           </ul>
         </div>
@@ -100,32 +104,33 @@ export default function Footer() {
           <ul className="footer_contact-list">
             <li>
               <span className="footer_contact-label">Emergency Line</span>
-              <a href="tel:+441234567890" className="footer_contact-value">+44 (0) 123 456 7890</a>
+              <a href="tel:+2348000000000" className="footer_contact-value footer_contact-link">+234 800 000 0000</a>
             </li>
             <li>
               <span className="footer_contact-label">Email</span>
-              <a href="mailto:info@voltix.co.uk" className="footer_contact-value">info@voltix.co.uk</a>
+              <a href="mailto:info@ehizmogajielectrical.com" className="footer_contact-value footer_contact-link">info@ehizmogajielectrical.com</a>
             </li>
             <li>
-              <span className="footer_contact-label">Service Area</span>
-              <span className="footer_contact-value">Greater London & Surrounding Areas</span>
+              <span className="footer_contact-label">Locations</span>
+              <span className="footer_contact-value">Lagos · Abuja · Port Harcourt</span>
             </li>
             <li>
               <span className="footer_contact-label">Hours</span>
-              <span className="footer_contact-value">24/7 Emergency · Mon–Sat 7am–8pm</span>
+              <span className="footer_contact-value">Mon – Sat: 7am – 8pm<br/>24/7 Emergencies</span>
             </li>
           </ul>
         </div>
+
       </div>
 
       {/* Bottom bar */}
       <div className="footer_bottom">
         <div className="container footer_bottom-inner">
-          <p className="footer_copy">© {new Date().getFullYear()} Voltix Electrical Services. All rights reserved.</p>
+          <p className="footer_copy">© {new Date().getFullYear()} Ehiz Mogaji Electrical. All rights reserved. · RC: 8171988</p>
           <div className="footer_badges">
             <span className="footer_badge">Licensed & Insured</span>
-            <span className="footer_badge">Part P Certified</span>
-            <span className="footer_badge">NICEIC Approved</span>
+            <span className="footer_badge">Solar Certified</span>
+            <span className="footer_badge">24/7 Support</span>
           </div>
         </div>
       </div>

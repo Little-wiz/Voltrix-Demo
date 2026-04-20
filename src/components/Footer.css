@@ -1,6 +1,8 @@
+/* Change logo and color theme  */
+
 .footer {
-  background: var(--c5);
-  border-top: 1px solid rgba(218,217,216,0.08);
+  background: var(--dark);
+  border-top: 1px solid rgba(61,190,108,0.1);
 }
 
 .footer_inner {
@@ -19,46 +21,25 @@
   margin-bottom: 16px;
 }
 
-.footer_logo-icon { color: var(--accent); display: flex; align-items: center; }
-
-.footer_logo-text {
-  font-family: var(--font-display);
-  font-size: 24px;
-  letter-spacing: 0.06em;
-  color: var(--white);
+.footer_logo img {
+  height: 44px; width: auto; object-fit: contain;
+  /* filter: brightness(0) invert(1); */
 }
 
-.footer_tagline {
-  font-size: 13px;
-  font-weight: 300;
-  line-height: 1.7;
-  color: var(--c3);
-  max-width: 280px;
-  margin-bottom: 24px;
-}
-
-.footer_socials {
-  display: flex;
-  gap: 10px;
-}
-
+.footer_logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+.footer_logo-name { font-family: var(--font-display); font-size: 18px; letter-spacing: 0.08em; color: var(--white); }
+.footer_logo-sub { font-size: 10px; font-weight: 300; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+.footer_tagline { font-size: 13px; font-weight: 300; line-height: 1.7; color: var(--c3); max-width: 280px; margin-bottom: 10px; }
+.footer_rc { font-size: 12px; letter-spacing: 0.06em; color: var(--accent); opacity: 0.7; margin-bottom: 20px; }
+.footer_socials { display: flex; gap: 10px; }
 .footer_social {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 1px solid rgba(218,217,216,0.15);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--c3);
-  transition: all 0.2s;
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid rgba(61,190,108,0.2);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--c3); transition: all 0.2s;
 }
+.footer_social:hover { border-color: var(--accent); color: var(--accent); background: rgba(61,190,108,0.1); }
 
-.footer_social:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  background: rgba(232,89,60,0.08);
-}
 
 /* Columns */
 .footer_col-title {
@@ -86,7 +67,7 @@
 }
 
 .footer_nav-link:hover {
-  color: var(--white);
+  color: var(--accent);
   padding-left: 4px;
 }
 
@@ -115,11 +96,12 @@
   transition: color 0.2s;
 }
 
-a.footer_contact-value:hover { color: var(--accent); }
+.footer_contact-link { transition: color 0.2s; }
+.footer_contact-link:hover { color: var(--accent); }
 
 /* Bottom bar */
 .footer_bottom {
-  border-top: 1px solid rgba(218,217,216,0.08);
+  border-top: 1px solid rgba(61,190,108,0.08);
   padding: 20px 0;
 }
 
@@ -170,3 +152,5 @@ a.footer_contact-value:hover { color: var(--accent); }
   .footer_brand { grid-column: auto; }
   .footer_bottom-inner { flex-direction: column; align-items: flex-start; }
 }
+
+/* Little-wiz was here  */

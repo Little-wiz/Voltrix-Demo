@@ -1,14 +1,20 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* Little-wiz Updated:: Revamped colors for green energy theme.  */
 :root {
   --c1: #DAD9D8;
   --c2: #B9B8B6;
   --c3: #898681;
   --c4: #58534E;
-  --c5: #282623;
-  --accent: #E8593C;
-  --accent-dark: #C4401F;
-  --white: #FAFAF9;
+  --c5: #1C2B1A;
+  --accent: #3DBE6C;
+  --accent-dark: #2A9952;
+  --accent-light: #E8F7EE;
+  --teal:         #1AADA0;
+  --teal-dark:    #117D74;
+  --white: #fff;
+  --dark:         #0F1F0E;
+  --dark-2:       #162615;
   --font-display: 'Bebas Neue', sans-serif;
   --font-body: 'DM Sans', sans-serif;
   --nav-h: 72px;
@@ -17,11 +23,7 @@
   --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-html {
-  scroll-behavior: smooth;
-  font-size: 16px;
-}
-
+html { scroll-behavior: smooth; font-size: 16px; }
 body {
   font-family: var(--font-body);
   background: var(--white);
@@ -37,9 +39,10 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--c1); }
-::-webkit-scrollbar-thumb { background: var(--c4); border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: var(--accent-dark); border-radius: 3px; }
 
 /* Utility */
+/* added utility classes for fade-in animations and section styling. */
 .container {
   width: 100%;
   max-width: 1200px;
@@ -65,3 +68,97 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 .reveal-delay-2 { transition-delay: 0.2s; }
 .reveal-delay-3 { transition-delay: 0.3s; }
 .reveal-delay-4 { transition-delay: 0.4s; }
+
+
+.section-eyebrow { 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 10px; 
+  font-size: 12px; 
+  font-weight: 500; 
+  letter-spacing: 0.12em; 
+  text-transform: uppercase; 
+  color: var(--accent); 
+  margin-bottom: 14px; 
+}
+
+.section-eyebrow::before { 
+  content: ''; 
+  display: block; 
+  width: 24px; 
+  height: 1.5px; 
+  background: var(--accent); 
+}
+
+.section-title { 
+  font-family: var(--font-display); 
+  font-size: clamp(38px, 5vw, 58px); 
+  letter-spacing: 0.02em; 
+  color: var(--c5); 
+  line-height: 1; 
+  margin-bottom: 16px; 
+}
+
+.section-sub { 
+  font-size: 16px; 
+  font-weight: 300; 
+  color: var(--c3); 
+  line-height: 1.65; 
+  max-width: 440px; 
+}
+
+.section-header { 
+  max-width: 560px; 
+  margin-bottom: 56px; 
+}
+
+.btn { 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 8px; 
+  font-family: var(--font-body); 
+  font-size: 14px; 
+  font-weight: 500; 
+  letter-spacing: 0.04em; 
+  padding: 14px 28px; 
+  border-radius: var(--radius); 
+  transition: all 0.2s ease; 
+  white-space: nowrap; 
+}
+
+.btn--primary { 
+  background: var(--accent); 
+  color: #fff; 
+  border: 1.5px solid var(--accent); 
+}
+.btn--primary:hover { 
+  background: var(--accent-dark); 
+  border-color: var(--accent-dark); 
+  transform: translateY(-2px); 
+  box-shadow: 0 8px 24px rgba(61,190,108,0.32); 
+}
+.btn--ghost { 
+  background: transparent; 
+  color: #fff; 
+  border: 1.5px solid rgba(218,217,216,0.35); 
+}
+
+.btn--ghost:hover { 
+  border-color: var(--accent); 
+  color: var(--accent); 
+  background: rgba(61,190,108,0.08); 
+  transform: translateY(-2px); 
+}
+.btn--ghost-dark { 
+  background: transparent; 
+  color: var(--c5); 
+  border: 1.5px solid var(--c2); 
+}
+
+.btn--ghost-dark:hover { 
+  border-color: var(--accent); 
+  color: var(--accent); 
+  transform: translateY(-2px); 
+}
+
+/* ## little-wiz was here */

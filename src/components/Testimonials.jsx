@@ -2,31 +2,12 @@ import React, { useState, useEffect, useCallback } from 'react';
 import './Testimonials.css';
 import { useReveal } from '../hooks/useReveal';
 
+// GPT Generated testimonials 
 const testimonials = [
-  {
-    quote: "Absolutely brilliant service. Called at 8pm on a Friday with a complete power outage and they had someone out within the hour. Professional, tidy, and reasonably priced. Won't use anyone else.",
-    name: 'Sarah Mitchell',
-    role: 'Homeowner, London',
-    initials: 'SM',
-  },
-  {
-    quote: "We hired them to rewire our entire office building. Project was completed ahead of schedule, zero disruption to our team, and the standard of work was impeccable. Highly recommended.",
-    name: 'James Okafor',
-    role: 'Director, Okafor & Partners',
-    initials: 'JO',
-  },
-  {
-    quote: "Had a full consumer unit upgrade done. The engineer was punctual, explained everything clearly, and left the place spotless. Certification was issued same day. Very impressed.",
-    name: 'Priya Nair',
-    role: 'Property Manager',
-    initials: 'PN',
-  },
-  {
-    quote: "They installed three EV charging points at our warehouse. Competitive quote, no fuss, great workmanship. Our staff have been using them daily without issue for six months now.",
-    name: 'Tom Bradley',
-    role: 'Operations Manager',
-    initials: 'TB',
-  },
+  { quote: "They installed a full solar system for our factory and the result has been outstanding. Our electricity bill dropped by 80%. Professional, punctual, and clean. I highly recommend Ehiz Mogaji Electrical.", name: 'Chukwuemeka Obi', role: 'Factory Owner, Lagos', initials: 'CO' },
+  { quote: "We had a complete home rewire done and the team was excellent from start to finish. They explained everything clearly, worked tidily, and finished ahead of schedule. Will definitely use them again.", name: 'Amina Yusuf', role: 'Homeowner, Abuja', initials: 'AY' },
+  { quote: "The inverter installation was smooth and the engineer knew exactly what he was doing. Six months in and not a single issue. Great customer service too — they actually pick up the phone.", name: 'Tunde Adeyemi', role: 'Business Owner, Ibadan', initials: 'TA' },
+  { quote: "We trusted them with our new office complex electrical fit-out. Delivered on time, within budget, and the standard of workmanship was genuinely impressive. Our go-to electrical company now.", name: 'Ngozi Eze', role: 'Project Manager, Port Harcourt', initials: 'NE' },
 ];
 
 export default function Testimonials() {
@@ -113,3 +94,5 @@ export default function Testimonials() {
     </section>
   );
 }
+
+// little-wiz was here

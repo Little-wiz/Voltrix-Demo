@@ -5,12 +5,12 @@ import { useReveal } from '../hooks/useReveal';
 const categories = ['All', 'Residential', 'Commercial', 'Industrial'];
 
 const projects = [
-  { cat: 'Residential', title: 'Full Home Rewire', location: 'London, UK' },
-  { cat: 'Commercial', title: 'Office Fit-Out', location: 'Manchester, UK' },
-  { cat: 'Industrial', title: 'Factory Panel Install', location: 'Birmingham, UK' },
-  { cat: 'Residential', title: 'EV Charger Install', location: 'Bristol, UK' },
-  { cat: 'Commercial', title: 'Retail Lighting Upgrade', location: 'Leeds, UK' },
-  { cat: 'Industrial', title: 'Three-Phase Power', location: 'Sheffield, UK' },
+  { cat: 'Solar', title: 'Rooftop Solar Array', location: 'Lagos, Nigeria' },
+  { cat: 'Commercial', title: 'Office Complex Wiring', location: 'Abuja, Nigeria' },
+  { cat: 'Inverter', title: 'Industrial Inverter Setup', location: 'Port Harcourt, Nigeria' },
+  { cat: 'Residential', title: 'Full Home Rewire', location: 'Benin City, Nigeria' },
+  { cat: 'Solar', title: 'Solar + Battery System', location: 'Lagos, Nigeria' },
+  { cat: 'Commercial', title: 'Retail Lighting Upgrade', location: 'Ibadan, Nigeria' },
 ];
 
 export default function Portfolio() {

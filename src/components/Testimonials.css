@@ -1,6 +1,6 @@
 .testimonials {
   padding: 100px 0;
-  background: var(--c5);
+  background: var(--dark);
 }
 
 .testimonials .section-title { color: var(--white); }
@@ -139,3 +139,5 @@
   .testimonials_quote { font-size: 15px; }
   .testimonials_stars { display: none; }
 }
+
+/* // little-wiz was here */

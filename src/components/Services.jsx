@@ -4,75 +4,40 @@ import { useReveal } from '../hooks/useReveal';
 
 const services = [
   {
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-        <path d="M14 3L4 9v10l10 6 10-6V9L14 3z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
-        <path d="M14 3v16M4 9l10 6 10-6" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
-      </svg>
-    ),
+    icon: (<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4L6 9v6l8 5 8-5V9L14 4z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/><path d="M14 14l-4-3M14 14l4-3M14 14v5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/></svg>),
+    title: 'Solar Panel Installation',
+    desc: 'Complete solar PV system design and installation for homes and businesses. Maximise energy independence and cut electricity bills.',
+    tag: 'Solar',
+  },
+  {
+    icon: (<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="8" width="20" height="13" rx="2" stroke="currentColor" strokeWidth="1.5"/><path d="M9 8V6a5 5 0 0 1 10 0v2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/><circle cx="14" cy="14.5" r="2" stroke="currentColor" strokeWidth="1.3"/></svg>),
+    title: 'Inverter Installation',
+    desc: 'Expert inverter setup and configuration. Seamless switchover between grid and backup power — no downtime, no surges.',
+    tag: 'Inverter',
+  },
+  {
+    icon: (<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="5" y="7" width="18" height="14" rx="2" stroke="currentColor" strokeWidth="1.5"/><path d="M9 7V5h10v2M12 14h4M14 12v4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/></svg>),
+    title: 'Battery Storage Solutions',
+    desc: 'Store the energy you generate. Our lithium and deep-cycle battery systems keep your power flowing through the night and cloudy days.',
+    tag: 'Storage',
+  },
+  {
+    icon: (<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 3L4 9v10l10 6 10-6V9L14 3z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/><path d="M14 3v16M4 9l10 6 10-6" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/></svg>),
     title: 'Residential Wiring',
     desc: 'Full home electrical installations, rewiring, upgrades, and safety inspections for new builds and renovations.',
     tag: 'Residential',
   },
   {
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-        <rect x="3" y="6" width="22" height="16" rx="2" stroke="currentColor" strokeWidth="1.5"/>
-        <path d="M9 22v3M19 22v3M6 25h16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-        <path d="M8 12h12M8 16h7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    ),
+    icon: (<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="6" width="22" height="16" rx="2" stroke="currentColor" strokeWidth="1.5"/><path d="M8 12h12M8 16h7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>),
     title: 'Commercial Electrical',
-    desc: 'Office fit-outs, industrial wiring, three-phase power, and full electrical project management for businesses.',
+    desc: 'Office fit-outs, industrial wiring, three-phase power, and full electrical project management for businesses of every size.',
     tag: 'Commercial',
   },
   {
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-        <rect x="5" y="4" width="18" height="20" rx="2" stroke="currentColor" strokeWidth="1.5"/>
-        <path d="M9 4v20M14 9h5M14 13h5M14 17h3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-        <circle cx="7" cy="9" r="1" fill="currentColor"/>
-        <circle cx="7" cy="13" r="1" fill="currentColor"/>
-        <circle cx="7" cy="17" r="1" fill="currentColor"/>
-      </svg>
-    ),
-    title: 'Panel Upgrades',
-    desc: 'Consumer unit replacements, circuit breaker upgrades, and capacity expansions to meet modern power demands.',
-    tag: 'Upgrades',
-  },
-  {
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-        <polygon points="14,3 16,11 24,11 18,16 20,24 14,19 8,24 10,16 4,11 12,11" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
-      </svg>
-    ),
-    title: 'Emergency Repairs',
-    desc: 'Rapid response 24/7 for power outages, tripped circuits, electrical faults, and any urgent safety concerns.',
+    icon: (<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M5 12h18M5 16h18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/><rect x="3" y="8" width="22" height="12" rx="2" stroke="currentColor" strokeWidth="1.5"/><circle cx="8" cy="14" r="1.5" fill="currentColor"/></svg>),
+    title: 'Maintenance & Repairs',
+    desc: 'Routine servicing, fault diagnosis, and emergency repairs. Our certified technicians are on call 24/7 for urgent electrical issues.',
     tag: '24/7',
-  },
-  {
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-        <circle cx="14" cy="14" r="4" stroke="currentColor" strokeWidth="1.5"/>
-        <path d="M14 4v3M14 21v3M4 14h3M21 14h3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-        <path d="M6.9 6.9l2.1 2.1M19 19l2.1 2.1M6.9 21.1L9 19M19 9l2.1-2.1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    ),
-    title: 'EV Charger Installation',
-    desc: 'Home and commercial EV charging point installations. Fast, smart chargers fully certified and compliant.',
-    tag: 'EV',
-  },
-  {
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-        <path d="M5 12h18M5 16h18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-        <rect x="3" y="8" width="22" height="12" rx="2" stroke="currentColor" strokeWidth="1.5"/>
-        <circle cx="8" cy="14" r="1.5" fill="currentColor"/>
-      </svg>
-    ),
-    title: 'Safety Inspections',
-    desc: 'EICR reports, PAT testing, landlord certificates, and full electrical condition reports for peace of mind.',
-    tag: 'Inspection',
   },
 ];
 
@@ -115,3 +80,5 @@ export default function Services() {
     </section>
   );
 }
+
+// Little-wiz was here
