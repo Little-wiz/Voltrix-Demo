@@ -38,36 +38,60 @@ export default function Contact() {
           </p>
 
           <div className="contact_details">
-            <a href="tel:+2348000000000" className="contact_detail">
+            <a href="tel:+2348077308787" className="contact_detail">
               <div className="contact_detail-icon">
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                   <path d="M3 2h3l1.5 4-2 1.2A11 11 0 0 0 11.8 13L13 11l4 1.5V16a1 1 0 0 1-1 1C6.16 17 1 11.84 1 5.5a1.5 1.5 0 0 1 1.5-1.5H3V2z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round"/>
                 </svg>
               </div>
               <div>
-                <span className="contact_detail-label">Phone (24/7 Emergency)</span>
-                <span className="contact_detail-value">+234 800 000 0000</span>
+                <span className="contact_detail-label">Phone Line 1</span>
+                <span className="contact_detail-value">+234 807 730 8787, +234 813 063 5398</span>
               </div>
             </a>
 
-            <a href="mailto:info@ehizmogajielectrical.com" className="contact_detail">
+            {/* <a href="tel:+2348130635398" className="contact_detail">
               <div className="contact_detail-icon">
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                  <rect x="1" y="4" width="16" height="11" rx="2" stroke="currentColor" strokeWidth="1.3"/>
-                  <path d="M1 6l8 5 8-5" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round"/>
+                  <path d="M3 2h3l1.5 4-2 1.2A11 11 0 0 0 11.8 13L13 11l4 1.5V16a1 1 0 0 1-1 1C6.16 17 1 11.84 1 5.5a1.5 1.5 0 0 1 1.5-1.5H3V2z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round"/>
                 </svg>
               </div>
               <div>
-                <span className="contact_detail-label">Email</span>
-                <span className="contact_detail-value">info@ehizmogajielectrical.com</span>
+                <span className="contact_detail-label">Phone Line 2</span>
+                <span className="contact_detail-value">+234 813 063 5398</span>
               </div>
             </a>
+
+            <a href="tel:+2348188907896" className="contact_detail">
+              <div className="contact_detail-icon">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                  <path d="M3 2h3l1.5 4-2 1.2A11 11 0 0 0 11.8 13L13 11l4 1.5V16a1 1 0 0 1-1 1C6.16 17 1 11.84 1 5.5a1.5 1.5 0 0 1 1.5-1.5H3V2z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <span className="contact_detail-label">Phone Line 3</span>
+                <span className="contact_detail-value">+234 818 890 7896</span>
+              </div>
+            </a> */}
 
             <div className="contact_detail">
               <div className="contact_detail-icon">
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                   <path d="M9 1C6.24 1 4 3.24 4 6c0 4.5 5 11 5 11s5-6.5 5-11c0-2.76-2.24-5-5-5z" stroke="currentColor" strokeWidth="1.3"/>
                   <circle cx="9" cy="6" r="1.8" stroke="currentColor" strokeWidth="1.3"/>
+                </svg>
+              </div>
+              <div>
+                <span className="contact_detail-label">Address</span>
+                <span className="contact_detail-value">47, Modupe Street, Folagoro, Shomolu, Lagos, Nigeria</span>
+              </div>
+            </div>
+
+            <div className="contact_detail">
+              <div className="contact_detail-icon">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                  <rect x="1" y="4" width="16" height="11" rx="2" stroke="currentColor" strokeWidth="1.3"/>
+                  <path d="M1 6l8 5 8-5" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round"/>
                 </svg>
               </div>
               <div>

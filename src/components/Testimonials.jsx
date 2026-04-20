@@ -5,9 +5,9 @@ import { useReveal } from '../hooks/useReveal';
 // GPT Generated testimonials 
 const testimonials = [
   { quote: "They installed a full solar system for our factory and the result has been outstanding. Our electricity bill dropped by 80%. Professional, punctual, and clean. I highly recommend Ehiz Mogaji Electrical.", name: 'Chukwuemeka Obi', role: 'Factory Owner, Lagos', initials: 'CO' },
-  { quote: "We had a complete home rewire done and the team was excellent from start to finish. They explained everything clearly, worked tidily, and finished ahead of schedule. Will definitely use them again.", name: 'Amina Yusuf', role: 'Homeowner, Abuja', initials: 'AY' },
+  { quote: "We had a complete home rewire done and the team was excellent from start to finish. They explained everything clearly, worked tidily, and finished ahead of schedule. Will definitely use them again.", name: 'Amina Yusuf', role: 'Homeowner, Lagos', initials: 'AY' },
   { quote: "The inverter installation was smooth and the engineer knew exactly what he was doing. Six months in and not a single issue. Great customer service too — they actually pick up the phone.", name: 'Tunde Adeyemi', role: 'Business Owner, Ibadan', initials: 'TA' },
-  { quote: "We trusted them with our new office complex electrical fit-out. Delivered on time, within budget, and the standard of workmanship was genuinely impressive. Our go-to electrical company now.", name: 'Ngozi Eze', role: 'Project Manager, Port Harcourt', initials: 'NE' },
+  { quote: "We trusted them with our new office complex electrical fit-out. Delivered on time, within budget, and the standard of workmanship was genuinely impressive. Our go-to electrical company now.", name: 'Ngozi Eze', role: 'Project Manager, Lagos', initials: 'NE' },
 ];
 
 export default function Testimonials() {

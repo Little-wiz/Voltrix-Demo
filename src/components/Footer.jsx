@@ -103,16 +103,20 @@ export default function Footer() {
           <h4 className="footer_col-title">Contact</h4>
           <ul className="footer_contact-list">
             <li>
-              <span className="footer_contact-label">Emergency Line</span>
-              <a href="tel:+2348000000000" className="footer_contact-value footer_contact-link">+234 800 000 0000</a>
+              <span className="footer_contact-label">Phone Line 1</span>
+              <a href="tel:+2348077308787" className="footer_contact-value footer_contact-link">+234 807 730 8787</a>
             </li>
             <li>
-              <span className="footer_contact-label">Email</span>
-              <a href="mailto:info@ehizmogajielectrical.com" className="footer_contact-value footer_contact-link">info@ehizmogajielectrical.com</a>
+              <span className="footer_contact-label">Phone Line 2</span>
+              <a href="tel:+2348130635398" className="footer_contact-value footer_contact-link">+234 813 063 5398</a>
             </li>
             <li>
-              <span className="footer_contact-label">Locations</span>
-              <span className="footer_contact-value">Lagos · Abuja · Port Harcourt</span>
+              <span className="footer_contact-label">Phone Line 3</span>
+              <a href="tel:+2348188907896" className="footer_contact-value footer_contact-link">+234 818 890 7896</a>
+            </li>
+            <li>
+              <span className="footer_contact-label">Address</span>
+              <span className="footer_contact-value">47, Modupe Street, Folagoro, Shomolu, Lagos</span>
             </li>
             <li>
               <span className="footer_contact-label">Hours</span>

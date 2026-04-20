@@ -4,9 +4,9 @@ import { useReveal } from '../hooks/useReveal';
 
 const reasons = [
   { title: 'Fully Licensed & Certified', desc: 'RC: 8171988. All work carried out by qualified engineers to the highest safety standards.' },
-  { title: 'Green Energy Specialists', desc: 'We design and install solar and renewable systems tailored to Nigeria\'s unique energy landscape.' },
+  { title: 'Reliable & Trustworthy', desc: 'We emphasize reliability and offer warranties on our work. Trusted by customers across Lagos.' },
   { title: 'Transparent, Fixed Pricing', desc: 'No hidden fees. You receive a clear quote before any work begins — always.' },
-  { title: 'End-to-End Service', desc: 'From energy audit and system design to installation, monitoring, and after-sales support.' },
+  { title: 'End-to-End Service', desc: 'From electrical audit and system design to installation, testing, and after-sales support.' },
 ];
 
 export default function About() {
@@ -35,9 +35,9 @@ export default function About() {
         <div className="about_copy">
           <div className="section-header reveal">
             <span className="section-eyebrow">About Us</span>
-            <h2 className="section-title">Powering Nigeria with Clean, Reliable Energy</h2>
+            <h2 className="section-title">Professional Electrical Services in Lagos</h2>
             <p className="section-sub">
-              Ehiz Mogaji Electrical is a licensed electrical and green energy company committed to delivering safe, efficient, and sustainable power solutions across Nigeria. Whether it's a home rewire or a full commercial solar installation — we show up, we deliver, and we stand behind our work.
+              Ehiz Electrical Works (also known as Ehiz Mogaji Electrical) is a professional electrical service provider based in Lagos, Nigeria, specializing in residential and commercial electrical works. Whether it's electrical wiring, rewiring, repairs, or specialized motor winding services — we show up, we deliver, and we stand behind our work with warranties.
             </p>
           </div>
           <div className="about_reasons">

@@ -1,13 +1,14 @@
-# Voltix Electrical Services — Website Template
+# Ehiz Mogaji Electrical — Website
 
-A clean, professional, mobile-first electrical services website built with React and plain CSS.
+Professional green energy & electrical services website built with React and plain CSS.
+RC: 8171988
 
 ---
 
 ## Tech Stack
 
 - **React 18** — UI framework
-- **Plain CSS** — per-component stylesheets, no CSS-in-JS or Tailwind
+- **Plain CSS** — per-component stylesheets, no Tailwind or CSS-in-JS
 - **Google Fonts** — Bebas Neue (display) + DM Sans (body)
 - **No external UI libraries** — fully self-contained
 
@@ -16,26 +17,23 @@ A clean, professional, mobile-first electrical services website built with React
 ## Project Structure
 
 ```
-voltix/
-├── public/
-│   └── index.html
-├── src/
-│   ├── components/
-│   │   ├── Navbar.jsx / Navbar.css
-│   │   ├── Hero.jsx / Hero.css
-│   │   ├── Services.jsx / Services.css
-│   │   ├── About.jsx / About.css
-│   │   ├── Portfolio.jsx / Portfolio.css
-│   │   ├── Testimonials.jsx / Testimonials.css
-│   │   ├── Contact.jsx / Contact.css
-│   │   └── Footer.jsx / Footer.css
-│   ├── hooks/
-│   │   └── useReveal.js       ← scroll-triggered fade-in animation
-│   ├── App.js
-│   ├── index.js
-│   └── index.css              ← global styles, CSS variables, base reset
-├── package.json
-└── README.md
+src/
+├── assets/
+│   └── logo.jpeg                  ← Client logo (replace with final file if needed)
+├── components/
+│   ├── Navbar.jsx / Navbar.css    ← Fixed nav, transparent → dark on scroll, mobile drawer
+│   ├── Hero.jsx / Hero.css        ← Full-screen hero with animated orbs and stats strip
+│   ├── Services.jsx / Services.css← 6-card service grid with hover invert effect
+│   ├── About.jsx / About.css      ← Two-column about section
+│   ├── Portfolio.jsx / Portfolio.css ← Filterable project grid
+│   ├── Testimonials.jsx / Testimonials.css ← Auto-advancing quote slider
+│   ├── Contact.jsx / Contact.css  ← Booking form with Nigerian details
+│   └── Footer.jsx / Footer.css    ← 4-column footer with socials
+├── hooks/
+│   └── useReveal.js               ← IntersectionObserver scroll animation hook
+├── App.js
+├── index.js
+└── index.css                      ← Global styles, CSS variables, resets, shared classes
 ```
 
 ---
@@ -46,20 +44,19 @@ voltix/
 - Node.js v16 or higher
 - npm v7 or higher
 
-### Installation
+### Installation & Run
 
 ```bash
 # 1. Navigate to the project folder
-cd voltix
+cd ehiz-mogaji-electrical
 
 # 2. Install dependencies
 npm install
 
-# 3. Start the development server
+# 3. Start the dev server
 npm start
+# Opens at http://localhost:3000
 ```
-
-The site will open at **http://localhost:3000**
 
 ### Production Build
 
@@ -67,120 +64,134 @@ The site will open at **http://localhost:3000**
 npm run build
 ```
 
-This creates an optimised `/build` folder ready to deploy to any static host (Netlify, Vercel, GitHub Pages, etc).
+Creates an optimised `/build` folder ready for deployment.
 
 ---
 
-## Color Palette
+## Color System
 
-| Variable       | Hex       | Usage                          |
-|----------------|-----------|--------------------------------|
-| `--c1`         | `#DAD9D8` | Light gray — backgrounds       |
-| `--c2`         | `#B9B8B6` | Mid gray — borders, dividers   |
-| `--c3`         | `#898681` | Warm gray — secondary text     |
-| `--c4`         | `#58534E` | Dark gray — body text          |
-| `--c5`         | `#282623` | Near black — headings, navbar  |
-| `--accent`     | `#E8593C` | Red-orange — CTAs, highlights  |
-| `--accent-dark`| `#C4401F` | Darker accent — hover states   |
-| `--white`      | `#FAFAF9` | Off-white — page background    |
+All colors are defined as CSS variables in `src/index.css`:
 
-All variables are defined in `src/index.css` and used throughout every component.
+| Variable         | Hex       | Usage                                  |
+|------------------|-----------|----------------------------------------|
+| `--accent`       | `#3DBE6C` | Primary green — CTAs, highlights       |
+| `--accent-dark`  | `#2A9952` | Hover/active green                     |
+| `--accent-light` | `#E8F7EE` | Pale green — section backgrounds       |
+| `--teal`         | `#1AADA0` | Teal — from logo, secondary accent     |
+| `--dark`         | `#0F1F0E` | Deep green-black — hero, footer        |
+| `--dark-2`       | `#162615` | Slightly lighter dark — about section  |
+| `--c5`           | `#1C2B1A` | Forest green — headings, body text     |
+| `--white`        | `#F7FAF7` | Green-tinted off-white — page bg       |
+| `--c1–c4`        | Grays     | Achromatic scale from original palette |
 
 ---
 
 ## Customisation Guide
 
-### Replacing the Logo
-The logo is a placeholder SVG lightning bolt in `Navbar.jsx` and `Footer.jsx`.
-Replace the `<svg>` blocks with an `<img src="..." alt="Your Logo" />` tag once the client provides their logo file.
+### Updating the Logo
+The logo file is at `src/assets/logo.jpeg`. To swap it:
+1. Replace the file with the same name, or
+2. Update the import path in `Navbar.jsx` and `Footer.jsx`
+
+Both components use `filter: brightness(0) invert(1)` on the logo image to make it appear white on the dark navbar/footer. Remove this filter if you provide a full-colour version on a transparent background.
 
 ### Updating Business Details
-Search the project for placeholder text and swap it out:
 
-| Placeholder              | File              | What to replace with        |
-|--------------------------|-------------------|-----------------------------|
-| `VOLTIX`                 | Navbar, Footer    | Client business name        |
-| `+44 (0) 123 456 7890`   | Contact, Footer   | Real phone number           |
-| `info@voltix.co.uk`      | Contact, Footer   | Real email address          |
-| `Greater London...`      | Contact, Footer   | Real service area           |
-| `voltix.co.uk`           | Footer            | Real domain                 |
-| `30+`, `4,938`, etc.     | Hero              | Real stats from client      |
+Search the codebase for these placeholders and swap them:
+
+| Placeholder                  | File(s)              | Replace with               |
+|------------------------------|----------------------|----------------------------|
+| `+234 800 000 0000`          | Contact, Footer      | Real phone number          |
+| `info@ehizmogajielectrical.com` | Contact, Footer   | Real email address         |
+| `Lagos · Abuja · Port Harcourt` | Contact, Footer   | Real service locations     |
+| `ehizmogajielectrical.com`   | index.html           | Real domain name           |
+| `500+`, `10+` (stats)        | Hero                 | Real figures from client   |
 
 ### Adding Real Photos
-- **About section photo** — replace the placeholder div in `About.jsx` with `<img src="..." alt="..." />`
-- **Portfolio thumbnails** — replace the `.portfolio__thumb-placeholder` divs in `Portfolio.jsx` with real `<img />` tags
-- Recommended size for portfolio images: **800×600px**, format: JPEG or WebP
 
-### Adding Social Media Links
-In `Footer.jsx`, update the `href` values on each `.footer__social` link with the real social profile URLs.
+- **About section** — replace the placeholder `div` in `About.jsx` with:
+  ```jsx
+  <img src={yourPhoto} alt="Ehiz Mogaji Electrical team" />
+  ```
+- **Portfolio grid** — replace `.portfolio__thumb-placeholder` divs in `Portfolio.jsx` with:
+  ```jsx
+  <img src={projectPhoto} alt="Project title" style={{width:'100%',height:'100%',objectFit:'cover'}} />
+  ```
+  Recommended image size: **800×600px**, WebP or JPEG format.
+
+### Social Media Links
+Update the `href` values in the `socials` array inside `Footer.jsx` with real profile URLs. WhatsApp link format: `https://wa.me/2348000000000`.
 
 ### Changing Services
-Edit the `services` array in `Services.jsx`. Each item accepts:
+Edit the `services` array in `Services.jsx`. Each entry accepts:
 ```js
-{
-  icon: <svg ... />,   // SVG icon
-  title: 'Service Name',
-  desc: 'Short description.',
-  tag: 'Label',
-}
+{ icon: <svg .../>, title: 'Service Name', desc: 'Description.', tag: 'Label' }
 ```
 
-### Changing Portfolio Categories
-Edit the `categories` array and `projects` array in `Portfolio.jsx`.
+---
+
+## SEO
+
+The following is already implemented in `public/index.html`:
+
+- ✅ `<title>` tag with keywords
+- ✅ Meta `description` and `keywords`
+- ✅ `robots` meta (index, follow)
+- ✅ `canonical` URL
+- ✅ Open Graph tags (Facebook, LinkedIn sharing)
+- ✅ Twitter Card tags
+- ✅ `LocalBusiness` JSON-LD structured data schema
+
+**To complete SEO setup after launch:**
+1. Replace all `https://ehizmogajielectrical.com` references in `index.html` with the real domain
+2. Create and upload a real `og-image.jpg` (1200×630px) to the root of the site — this is the image shown when the site is shared on social media
+3. Submit the sitemap to Google Search Console
+4. Register and verify the site on Google Business Profile
 
 ---
 
-## Sections Overview
+## Sections
 
-| Section       | ID               | Description                                              |
-|---------------|------------------|----------------------------------------------------------|
-| Navbar        | —                | Fixed, transparent → dark on scroll. Mobile drawer menu |
-| Hero          | `#hero`          | Full-screen intro with headline, stats strip             |
-| Services      | `#services`      | 6-card grid with hover effect                            |
-| About         | `#about`         | Two-column layout with image placeholder + reasons       |
-| Portfolio     | `#portfolio`     | Filterable 3-column image grid                           |
-| Testimonials  | `#testimonials`  | Auto-advancing quote slider                              |
-| Contact       | `#contact`       | Booking form + contact details                           |
-| Footer        | —                | 4-column footer with nav, services, contact, socials     |
+| Section       | ID               | Background       |
+|---------------|------------------|------------------|
+| Navbar        | —                | Transparent → `--dark` |
+| Hero          | `#hero`          | `--dark`         |
+| Services      | `#services`      | `--white`        |
+| About         | `#about`         | `--dark-2`       |
+| Portfolio     | `#portfolio`     | `--accent-light` |
+| Testimonials  | `#testimonials`  | `--dark`         |
+| Contact       | `#contact`       | `--white`        |
+| Footer        | —                | `--dark`         |
 
----
-
-## Scroll Animation
-
-All sections use a custom `useReveal` hook (`src/hooks/useReveal.js`) powered by the browser's `IntersectionObserver` API. Elements with the class `reveal` fade in as they enter the viewport. Staggered delays are applied using `reveal-delay-1`, `reveal-delay-2`, etc.
-
-No external animation library is required.
+Sections alternate between light and dark backgrounds, creating a natural visual rhythm as the user scrolls.
 
 ---
 
 ## Responsive Breakpoints
 
-| Breakpoint | Width    | Changes                                        |
+| Breakpoint | Width    | Behaviour                                      |
 |------------|----------|------------------------------------------------|
-| Desktop    | > 900px  | Full nav, multi-column grids                   |
+| Desktop    | > 900px  | Full navbar, 3-column grids                    |
 | Tablet     | ≤ 900px  | Hamburger menu, 2-column grids                 |
-| Mobile     | ≤ 560px  | Single-column everything, reduced padding      |
+| Mobile     | ≤ 560px  | Single column, reduced padding, hidden extras  |
 
 ---
 
-## Deployment
+## Deployment (Quick Reference)
 
-The simplest options for deploying the built site:
-
-**Netlify (recommended)**
-1. Run `npm run build`
-2. Drag the `/build` folder into [netlify.com/drop](https://app.netlify.com/drop)
+**Netlify (easiest)**
+```bash
+npm run build
+# Drag the /build folder to app.netlify.com/drop
+```
 
 **Vercel**
 ```bash
-npm install -g vercel
-vercel
+npm i -g vercel && vercel
 ```
 
-**GitHub Pages**
-Install `gh-pages`, add `"homepage": "https://yourusername.github.io/voltix"` to `package.json`, then run `npm run deploy`.
-
----
-
-## License
-Template built for client use. Replace all placeholder content before going live.
+**cPanel / shared hosting**
+```bash
+npm run build
+# Upload contents of /build to public_html via FTP
+```

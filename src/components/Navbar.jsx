@@ -33,10 +33,10 @@ export default function Navbar() {
     <header className={`navbar${scrolled ? ' scrolled' : ''}`}>
       <div className="container navbar_inner">
         <a href="#hero" className="navbar_logo" onClick={handleLink}>
-          <img src={logo} alt="Ehiz Mogaji Electrical Logo" />
+          <img src={logo} alt="Ehiz Electrical Works Logo" />
           <div className="navbar_logo-text">
-            <span className="navbar_logo-name">EHIZ MOGAJI</span>
-            <span className="navbar_logo-sub">Electrical</span>
+            <span className="navbar_logo-name">EHIZ ELECTRICAL</span>
+            <span className="navbar_logo-sub">Works</span>
           </div>
         </a>
 
