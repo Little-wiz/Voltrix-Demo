@@ -59,7 +59,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--c3), var(--c3));
+  background: linear-gradient(135deg, var(--c1), var(--c3));
+  border: 1px solid var(--blue);
 }
 
 .portfolio_overlay {

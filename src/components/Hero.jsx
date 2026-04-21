@@ -36,12 +36,12 @@ export default function Hero() {
         <div className="hero_content">
           <p className="hero_eyebrow">Licensed & Certified · RC: 8171988</p>
           <h1 className="hero_title">
-            Clean Power.<br />
-            <span className="hero_title-accent">Green</span><br />
-            Future.
+            Reliable Power.<br />
+            <span className="hero_title-accent">Safe</span><br />
+            Solutions.
           </h1>
           <p className="hero_subtitle">
-            Professional electrical and renewable energy solutions for homes and businesses across Nigeria. Solar, inverters, wiring — done right.
+            Professional electrical solutions for homes and businesses across Nigeria. Wiring, installations, maintenance — done right.
           </p>
           <div className="hero_actions">
             <a href="#contact" className="btn btn--primary">Get a Free Quote</a>

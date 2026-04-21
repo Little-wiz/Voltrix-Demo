@@ -59,7 +59,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 .reveal {
   opacity: 0;
   transform: translateY(28px);
-  transition: opacity 0.65s ease, transform 0.65s ease;
+  transition: opacity var(--transition), transform var(--transition);
 }
 .reveal.visible {
   opacity: 1;
