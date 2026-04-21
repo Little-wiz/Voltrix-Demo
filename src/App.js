@@ -7,8 +7,10 @@ import Portfolio from './components/Portfolio';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import { useSmoothScroll } from './hooks/useSmoothScroll';
 
 export default function App() {
+  useSmoothScroll();
   return (
     <>
       <Navbar />
