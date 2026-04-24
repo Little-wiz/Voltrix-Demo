@@ -31,6 +31,7 @@ src/
 │   └── Footer.jsx / Footer.css    ← 4-column footer with socials
 ├── hooks/
 │   └── useReveal.js               ← IntersectionObserver scroll animation hook
+|   ├── useSmoothScroll.js
 ├── App.js
 ├── index.js
 └── index.css                      ← Global styles, CSS variables, resets, shared classes
@@ -179,19 +180,7 @@ Sections alternate between light and dark backgrounds, creating a natural visual
 
 ## Deployment (Quick Reference)
 
-**Netlify (easiest)**
-```bash
-npm run build
-# Drag the /build folder to app.netlify.com/drop
-```
-
 **Vercel**
 ```bash
 npm i -g vercel && vercel
-```
-
-**cPanel / shared hosting**
-```bash
-npm run build
-# Upload contents of /build to public_html via FTP
 ```
