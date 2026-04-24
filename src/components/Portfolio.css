@@ -40,9 +40,21 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
+  min-height: 200px;
 }
 
-.portfolio_item { border-radius: var(--radius-lg); overflow: hidden; }
+.portfolio_item { 
+  border-radius: var(--radius-lg); 
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  transform: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.portfolio_item--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 .portfolio_thumb {
   position: relative;

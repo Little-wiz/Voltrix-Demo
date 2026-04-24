@@ -98,7 +98,7 @@ export default function Services() {
               {/* Little-wiz updated: Dark overlay */}
               <div className="service-card_overlay" aria-hidden="true" />
 
-               {/* Little-wiz updated: All card content sits above image and overlay via z-index */}
+               {/* Little-wiz updated: All card content sits above image */}
               <div className="service-card_content">
                 <div className="service-card_top">
                   <span className="service-card_tag">{s.tag}</span>

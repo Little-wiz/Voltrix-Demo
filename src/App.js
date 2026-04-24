@@ -8,9 +8,10 @@ import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import { useSmoothScroll } from './hooks/useSmoothScroll';
-
+import { useReveal } from './hooks/useReveal';
 export default function App() {
   useSmoothScroll();
+  useReveal();
   return (
     <>
       <Navbar />

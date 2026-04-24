@@ -49,7 +49,7 @@
   pointer-events: none;
 }
 
-/* Little-wiz updated: Green grid at very low opacity — brand texture without fighting photo */
+/* Little-wiz updated: Green grid at very low opacity */
 .hero_grid {
   position: absolute; inset: 0;
   background-image:

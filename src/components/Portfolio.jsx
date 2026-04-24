@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Portfolio.css';
 import { useReveal } from '../hooks/useReveal';
 
-const categories = ['All', 'Residential', 'Commercial', 'Industrial'];
+const categories = ['All', 'Residential', 'Commercial', 'Solar'];
 
 const projects = [
   { cat: 'Solar', title: 'Rooftop Solar Array', location: 'Lagos, Nigeria' },
   { cat: 'Commercial', title: 'Office Complex Wiring', location: 'Abuja, Nigeria' },
-  { cat: 'Inverter', title: 'Industrial Inverter Setup', location: 'Port Harcourt, Nigeria' },
+  { cat: 'Solar', title: 'Industrial Inverter Setup', location: 'Port Harcourt, Nigeria' },
   { cat: 'Residential', title: 'Full Home Rewire', location: 'Benin City, Nigeria' },
   { cat: 'Solar', title: 'Solar + Battery System', location: 'Lagos, Nigeria' },
   { cat: 'Commercial', title: 'Retail Lighting Upgrade', location: 'Ibadan, Nigeria' },
@@ -15,9 +15,26 @@ const projects = [
 
 export default function Portfolio() {
   const [active, setActive] = useState('All');
+  const [visibleCards, setVisibleCards] = useState([]);
+  
   const ref = useReveal();
 
   const filtered = active === 'All' ? projects : projects.filter(p => p.cat === active);
+
+  useEffect(() => {
+    setVisibleCards([]);
+    const timers = filtered.map((_, i) =>
+      setTimeout(() => {
+        setVisibleCards(prev => [...prev, i]);
+      }, 80 + i * 80)
+    );
+    return () => timers.forEach(t => clearTimeout(t));
+  }, [active]);
+
+  const handleFilter = (cat) => {
+    if (cat === active) return;
+    setActive(cat);
+  };
 
   return (
     <section className="portfolio" id="portfolio" ref={ref}>
@@ -36,7 +53,7 @@ export default function Portfolio() {
             <button
               key={c}
               className={`portfolio_filter${active === c ? ' active' : ''}`}
-              onClick={() => setActive(c)}
+              onClick={() => handleFilter(c)}
             >
               {c}
             </button>
@@ -46,7 +63,7 @@ export default function Portfolio() {
         {/* Grid */}
         <div className="portfolio_grid">
           {filtered.map((p, i) => (
-            <div key={`${p.title}-${i}`} className="portfolio_item reveal">
+            <div key={`${p.cat}-${p.title}`} className={`portfolio_items${visibleCards.includes(i) ? 'portfolio_item--visible' : ''}`}>
               <div className="portfolio_thumb">
                 <div className="portfolio_thumb-placeholder">
                   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" opacity="0.25">

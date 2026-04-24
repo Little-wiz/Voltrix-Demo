@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './Contact.css';
 import { useReveal } from '../hooks/useReveal';
 
+const RECIPIENT_EMAIL = 'info@ehizmogajielectrical.com';
+
 // Some text ads by claude
 const services = [
   'Residential Wiring',
@@ -15,15 +17,75 @@ const services = [
 
 export default function Contact() {
   const ref = useReveal();
-  const [form, setForm] = useState({ name: '', email: '', service: '', date: '', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', phone:"", service: '', date: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [errors, setErrors]       = useState({});
+  
 
   const handleChange = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }));
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    setSubmitted(true);
+  // Little-wiz updated: Basic validation — name, email, and service are required
+  const validate = () => {
+    const e = {};
+    if (!form.name.trim())    e.name    = 'Please enter your name.';
+    if (!form.email.trim())   e.email   = 'Please enter your email address.';
+    if (!form.service)        e.service = 'Please select a service.';
+    return e;
   };
+
+   const handleSubmit = e => {
+    e.preventDefault();
+
+    const errs = validate();
+    if (Object.keys(errs).length) {
+      setErrors(errs);
+      return;
+    }
+    setErrors({});
+
+    // Little-wiz updated: Build the email subject line
+    const subject = `Service Request: ${form.service || 'General Enquiry'} — ${form.name}`;
+
+    // Little-wiz updated: Build the email body — each field on its own line, clearly labelled
+    const body = [
+      `Hello,`,
+      ``,
+      `You have received a new service request from your website.`,
+      ``,
+      `─────────────────────────────`,
+      `  Name:     ${form.name}`,
+      `  Phone:    ${form.phone    || 'Not provided'}`,
+      `  Email:    ${form.email}`,
+      `  Service:  ${form.service  || 'Not specified'}`,
+      `  Date:     ${form.date     || 'Not specified'}`,
+      `─────────────────────────────`,
+      ``,
+      `Message:`,
+      form.message || '(No additional message provided)',
+      ``,
+      `─────────────────────────────`,
+      `Sent via ehizmogajielectrical.com`,
+    ].join('\n');
+
+    // Little-wiz updated: Encode subject and body for use in a mailto URI
+    const mailtoLink =
+      `mailto:${RECIPIENT_EMAIL}` +
+      `?subject=${encodeURIComponent(subject)}` +
+      `&body=${encodeURIComponent(body)}`;
+
+    // Little-wiz updated: Open mail client
+    window.location.href = mailtoLink;
+
+    // Little-wiz updated: Show success state after a short delay
+    setTimeout(() => setSubmitted(true), 400);
+  };
+
+  const handleReset = () => {
+    setSubmitted(false);
+    setForm({ name: '', email: '', phone: '', service: '', date: '', message: '' });
+    setErrors({});
+  };
+  
 
   return (
     <section className="contact" id="contact" ref={ref}>
@@ -49,30 +111,6 @@ export default function Contact() {
                 <span className="contact_detail-value">+234 807 730 8787, +234 813 063 5398</span>
               </div>
             </a>
-
-            {/* <a href="tel:+2348130635398" className="contact_detail">
-              <div className="contact_detail-icon">
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                  <path d="M3 2h3l1.5 4-2 1.2A11 11 0 0 0 11.8 13L13 11l4 1.5V16a1 1 0 0 1-1 1C6.16 17 1 11.84 1 5.5a1.5 1.5 0 0 1 1.5-1.5H3V2z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round"/>
-                </svg>
-              </div>
-              <div>
-                <span className="contact_detail-label">Phone Line 2</span>
-                <span className="contact_detail-value">+234 813 063 5398</span>
-              </div>
-            </a>
-
-            <a href="tel:+2348188907896" className="contact_detail">
-              <div className="contact_detail-icon">
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                  <path d="M3 2h3l1.5 4-2 1.2A11 11 0 0 0 11.8 13L13 11l4 1.5V16a1 1 0 0 1-1 1C6.16 17 1 11.84 1 5.5a1.5 1.5 0 0 1 1.5-1.5H3V2z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round"/>
-                </svg>
-              </div>
-              <div>
-                <span className="contact_detail-label">Phone Line 3</span>
-                <span className="contact_detail-value">+234 818 890 7896</span>
-              </div>
-            </a> */}
 
             <div className="contact_detail">
               <div className="contact_detail-icon">
@@ -130,51 +168,118 @@ export default function Contact() {
                   <path d="M10 16l4 4 8-8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
-              <h3>Request Received!</h3>
-              <p>We'll be in touch shortly. For urgent jobs, call us directly on <strong>+234 800 000 0000</strong>.</p>
-              <button className="btn btn--ghost contact_reset" onClick={() => setSubmitted(false)}>
+              <h3>Email Client Opened!</h3>
+              <p>
+                Your message has been prepared and your email app should have
+                opened. Just hit <strong>Send</strong> to deliver it to us.
+                Can't see it?{' '}
+                <a href={`mailto:${RECIPIENT_EMAIL}`} className="contact_success-link">
+                  Click here to try again.
+                </a>
+              </p>
+              <button className="btn btn--ghost contact_reset" onClick={handleReset}>
                 Send Another
               </button>
             </div>
           ) : (
             <form className="contact_form" onSubmit={handleSubmit} noValidate>
+
+              {/* Row 1: Name + Phone */}
               <div className="contact_row">
                 <div className="contact_field">
-                  <label className="contact_label" htmlFor="name">Full Name</label>
-                  <input id="name" name="name" type="text" className="contact_input" placeholder="Chukwuemeka Obi" value={form.name} onChange={handleChange} required />
+                  <label className="contact_label" htmlFor="name">
+                    Full Name <span className="contact_required">*</span>
+                  </label>
+                  <input
+                    id="name" name="name" type="text"
+                    className={`contact_input${errors.name ? ' contact_input--error' : ''}`}
+                    placeholder="Chukwuemeka Obi"
+                    value={form.name} onChange={handleChange}
+                  />
+                  {errors.name && <span className="contact_error">{errors.name}</span>}
                 </div>
                 <div className="contact_field">
                   <label className="contact_label" htmlFor="phone">Phone Number</label>
-                  <input id="phone" name="phone" type="tel" className="contact_input" placeholder="+234 800 000 0000" value={form.phone} onChange={handleChange} />
+                  <input
+                    id="phone" name="phone" type="tel"
+                    className="contact_input"
+                    placeholder="+234 800 000 0000"
+                    value={form.phone} onChange={handleChange}
+                  />
                 </div>
               </div>
+
+              {/* Row 2: Email */}
               <div className="contact_field">
-                <label className="contact_label" htmlFor="email">Email Address</label>
-                <input id="email" name="email" type="email" className="contact_input" placeholder="you@example.com" value={form.email} onChange={handleChange} required />
+                <label className="contact_label" htmlFor="email">
+                  Email Address <span className="contact_required">*</span>
+                </label>
+                <input
+                  id="email" name="email" type="email"
+                  className={`contact_input${errors.email ? ' contact_input--error' : ''}`}
+                  placeholder="you@example.com"
+                  value={form.email} onChange={handleChange}
+                />
+                {errors.email && <span className="contact_error">{errors.email}</span>}
               </div>
+
+              {/* Row 3: Service + Date */}
               <div className="contact_row">
                 <div className="contact_field">
-                  <label className="contact_label" htmlFor="service">Service Required</label>
-                  <select id="service" name="service" className="contact_input contact_select" value={form.service} onChange={handleChange} required>
+                  <label className="contact_label" htmlFor="service">
+                    Service Required <span className="contact_required">*</span>
+                  </label>
+                  <select
+                    id="service" name="service"
+                    className={`contact_input contact_select${errors.service ? ' contact_input--error' : ''}`}
+                    value={form.service} onChange={handleChange}
+                  >
                     <option value="">Select a service…</option>
                     {services.map(s => <option key={s} value={s}>{s}</option>)}
                   </select>
+                  {errors.service && <span className="contact_error">{errors.service}</span>}
                 </div>
                 <div className="contact_field">
                   <label className="contact_label" htmlFor="date">Preferred Date</label>
-                  <input id="date" name="date" type="date" className="contact_input" value={form.date} onChange={handleChange} />
+                  <input
+                    id="date" name="date" type="date"
+                    className="contact_input"
+                    value={form.date} onChange={handleChange}
+                  />
                 </div>
               </div>
+
+              {/* Row 4: Message */}
               <div className="contact_field">
-                <label className="contact_label" htmlFor="message">Message (optional)</label>
-                <textarea id="message" name="message" className="contact_input contact_textarea" placeholder="Tell us a bit more about the job — location, scope, any existing setup…" rows={4} value={form.message} onChange={handleChange} />
+                <label className="contact_label" htmlFor="message">
+                  Message (optional)
+                </label>
+                <textarea
+                  id="message" name="message"
+                  className="contact_input contact_textarea"
+                  placeholder="Tell us a bit more about the job — location, scope, any existing setup…"
+                  rows={4}
+                  value={form.message} onChange={handleChange}
+                />
               </div>
+
+              {/* Little-wiz updated: Helper note so users know what clicking Send will do */}
+              <p className="contact_mailto-note">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <circle cx="7" cy="7" r="6" stroke="currentColor" strokeWidth="1.2"/>
+                  <path d="M7 6v4M7 4.5v.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
+                </svg>
+                Clicking Send will open your email app (Gmail, Outlook, etc.)
+                with this form pre-filled. Just hit Send in your email app to submit.
+              </p>
+
               <button type="submit" className="btn btn--primary contact_submit">
                 Send Request
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path d="M2 8h12M9 4l5 4-5 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </button>
+
             </form>
           )}
         </div>
