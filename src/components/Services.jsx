@@ -25,20 +25,6 @@ const services = [
     tag: 'Repairs',
   },
   {
-    image: 'https://feyafy.com/wp-content/uploads/2025/01/Rectangle_9-1.webp?w=800&q=80&fit=crop',
-    icon: (<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="10" stroke="currentColor" strokeWidth="1.5"/><path d="M14 8v6M14 17v3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>),
-    title: 'Winding & Rewinding',
-    desc: 'Specialized electrical motor services including winding and rewinding for industrial and commercial motors.',
-    tag: 'Motors',
-  },
-  {
-    image: 'https://beamairflow.com/wp-content/uploads/2024/05/unnamed-15-2.webp?w=800&q=80&fit=crop',
-    icon: (<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="6" y="4" width="16" height="20" rx="2" stroke="currentColor" strokeWidth="1.5"/><path d="M6 9h16M6 14h16M6 19h16" stroke="currentColor" strokeWidth="1.3"/></svg>),
-    title: 'Capacitor Services',
-    desc: 'Professional placement and replacement of capacitors for electrical systems. Improve power factor and efficiency.',
-    tag: 'Capacitor',
-  },
-  {
     image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80&fit=crop',
     icon: (<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4L6 9v6l8 5 8-5V9L14 4z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/><path d="M14 14l-4-3M14 14l4-3M14 14v5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/></svg>),
     title: 'Solar Panel Installation',

@@ -7,8 +7,8 @@ function easeInOutCubic(t) {
     : 1 - Math.pow(-2 * t + 2, 3) / 2;
 }
 
-// Little-wiz updated: Core scroll function
-function smoothScrollTo(targetY, duration = 900) {
+// Little-wiz updated: Core scroll function with increased duration for smoother effect
+function smoothScrollTo(targetY, duration = 1500) {
   const startY = window.scrollY;
   const distance = targetY - startY;
   let startTime = null;
@@ -52,7 +52,7 @@ export function useSmoothScroll() {
 
       const targetY = target.getBoundingClientRect().top + window.scrollY - navHeight;
 
-      smoothScrollTo(targetY, 900);
+      smoothScrollTo(targetY);
 
       if (history.pushState) {
         history.pushState(null, '', href);

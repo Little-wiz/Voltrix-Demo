@@ -133,7 +133,7 @@ export default function Contact() {
               </div>
               <div>
                 <span className="contact__detail-label">Email</span>
-                <span className="contact__detail-value">info@ehizmogajielectrical.com</span>
+                <span className="contact__detail-value">ehizmogajielectrical1@gmail.com</span>
               </div>
             </a>
 
