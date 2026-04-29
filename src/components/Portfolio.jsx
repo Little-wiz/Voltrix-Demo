@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import './Portfolio.css';
 import { useReveal } from '../hooks/useReveal';
-import one from "../assets/1.jpeg";
 const categories = ['All', 'Residential', 'Commercial', 'Solar'];
 
 // Map your assets folder images to each project.
