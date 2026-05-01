@@ -8,12 +8,14 @@ const categories = ['All', 'Residential', 'Commercial', 'Solar'];
 const projects = [
   {
     cat: 'Solar',
-    title: 'Rooftop Solar Array',
+    title: 'Solar Array installations',
     location: 'Lagos, Nigeria',
     images: [
-      '/assets/10.jpeg',  // inverter/solar system on wall
-      '/assets/7.jpeg',   // technician wiring panel
-      '/assets/1.jpeg',   // circuit breaker (C125A)
+      '/assets/59.jpeg',  // inverter/solar system on wall
+      '/assets/44.jpeg',   // technician wiring panel
+      '/assets/41.jpeg',   // circuit breaker (C125A)
+      '/assets/82.jpeg',
+      '/assets/47.jpeg',   // circuit breaker (C125A)
     ],
   },
   {
@@ -23,7 +25,9 @@ const projects = [
     images: [
       '/assets/2.jpeg',   // technician drilling on building exterior
       '/assets/11.jpeg',  // ceiling conduit rough-in
-      '/assets/16.jpeg',  // commercial space rough-in wiring
+      '/assets/15.jpeg',  // commercial space rough-in wiring
+      '/assets/40.jpeg',  // commercial space rough-in wiring
+      '/assets/72.jpegf',  // commercial space rough-in wiring
     ],
   },
   {
