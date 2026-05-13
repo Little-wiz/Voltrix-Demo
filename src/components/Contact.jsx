@@ -1,14 +1,6 @@
-// Little-wiz updated: Replaced mailto: approach with EmailJS
-
 import React, { useState } from 'react';
-import emailjs from '@emailjs/browser';
 import './Contact.css';
 import { useReveal } from '../hooks/useReveal';
-
-// Little-wiz updated: moved to .env for production
-const EMAILJS_SERVICE_ID  = process.env.REACT_APP_EMAILJS_SERVICE_ID;
-const EMAILJS_TEMPLATE_ID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
-const EMAILJS_PUBLIC_KEY  = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
 
 const services = [
   'Solar Panel Installation',
@@ -21,25 +13,25 @@ const services = [
   'Other',
 ];
 
+const API_URL = 'https://voltrix-server-wjo7.onrender.com';
+
 export default function Contact() {
   const ref = useReveal();
 
   const [form, setForm] = useState({
-    from_name:    '',
-    from_email:   '',
-    from_phone:   '',
-    service_type: '',
+    from_name:      '',
+    from_email:     '',
+    from_phone:     '',
+    service_type:   '',
     preferred_date: '',
-    message:      '',
+    message:        '',
   });
-
-  const [status, setStatus] = useState('idle');
+  const [status, setStatus] = useState('idle'); // 'idle' | 'sending' | 'success' | 'error'
   const [errors, setErrors] = useState({});
 
   const handleChange = e =>
     setForm(f => ({ ...f, [e.target.name]: e.target.value }));
 
-  // Little-wiz updated: Validation — name, email, service required
   const validate = () => {
     const e = {};
     if (!form.from_name.trim())  e.from_name    = 'Please enter your name.';
@@ -60,39 +52,29 @@ export default function Contact() {
     setStatus('sending');
 
     try {
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        {
-          from_name:      form.from_name,
-          from_email:     form.from_email,
-          from_phone:     form.from_phone     || 'Not provided',
-          service_type:   form.service_type,
-          preferred_date: form.preferred_date || 'Not specified',
-          message:        form.message        || 'No additional message.',
-          // Little-wiz updated: sent_date auto-generates a readable timestamp on the email
-          sent_date: new Date().toLocaleDateString('en-GB', {
-            weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
-          }),
-        },
-        EMAILJS_PUBLIC_KEY
-      );
-
-      setStatus('success');
-      // Little-wiz updated: Clear form fields after successful send
-      setForm({
-        from_name: '', from_email: '', from_phone: '',
-        service_type: '', preferred_date: '', message: '',
+      const res = await fetch(`${API_URL}/api/contact`, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify(form),
       });
 
-    } catch (err) {
-      console.error('EmailJS error:', err);
+      if (!res.ok) throw new Error('Server error');
+      setStatus('success');
+    } catch {
       setStatus('error');
     }
   };
 
   const handleReset = () => {
     setStatus('idle');
+    setForm({
+      from_name:      '',
+      from_email:     '',
+      from_phone:     '',
+      service_type:   '',
+      preferred_date: '',
+      message:        '',
+    });
     setErrors({});
   };
 
@@ -124,7 +106,7 @@ export default function Contact() {
               </div>
             </a>
 
-            <a href="mailto:info@ehizmogajielectrical.com" className="contact__detail">
+            <a href="mailto:ehizmogajielectrical1@gmail.com" className="contact__detail">
               <div className="contact__detail-icon">
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                   <rect x="1" y="4" width="16" height="11" rx="2" stroke="currentColor" strokeWidth="1.3"/>
@@ -297,27 +279,18 @@ export default function Contact() {
                 />
               </div>
 
-              {/* Little-wiz updated: Submit button shows spinner while sending */}
               <button
                 type="submit"
-                className="btn btn--primary contact__submit"
+                className="btn btn--primary contact_submit"
                 disabled={status === 'sending'}
               >
-                {status === 'sending' ? (
-                  <>
-                    <span className="contact__spinner" />
-                    Sending…
-                  </>
-                ) : (
-                  <>
-                    Send Request
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <path d="M2 8h12M9 4l5 4-5 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </>
+                {status === 'sending' ? 'Sending…' : 'Send Request'}
+                {status !== 'sending' && (
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M2 8h12M9 4l5 4-5 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
                 )}
               </button>
-
             </form>
           )}
         </div>
