@@ -102,7 +102,7 @@ export default function Contact() {
               </div>
               <div>
                 <span className="contact__detail-label">Phone (24/7 Emergency)</span>
-                <span className="contact__detail-value">+234 800 000 0000</span>
+                <span className="contact__detail-value">+234 813 063 5398</span>
               </div>
             </a>
 
@@ -168,7 +168,7 @@ export default function Contact() {
               <p>
                 Your request has been delivered to Ehiz Mogaji Electrical.
                 We'll be in touch within a few hours. For urgent jobs, call
-                us on <strong>+234 800 000 0000</strong>.
+                us on <strong>+234 813 063 5398</strong>.
               </p>
               <button className="btn btn--ghost contact__reset" onClick={handleReset}>
                 Send Another
@@ -188,7 +188,7 @@ export default function Contact() {
               <h3>Something went wrong.</h3>
               <p>
                 We couldn't send your message right now. Please try again,
-                or reach us directly at <strong>+234 800 000 0000</strong>.
+                or reach us directly at <strong>+234 813 063 5398</strong>.
               </p>
               <button className="btn btn--ghost contact__reset" onClick={handleReset}>
                 Try Again
